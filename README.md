@@ -14,7 +14,8 @@ You are required to help the manager to predict the right group of the new custo
 
 ## Neural Network Model
 
-Include the neural network model diagram.
+<img width="978" height="828" alt="image" src="https://github.com/user-attachments/assets/cbdc9e3e-ebee-437d-94eb-5fb51fdcd3ab" />
+
 
 ## DESIGN STEPS
 
@@ -28,37 +29,54 @@ Write your own steps
 
 ## PROGRAM
 
-### Name: 
-### Register Number:
+### Name: Harshini V
+### Register Number:212224040109
 
-```python
+~~~
+
+
 class PeopleClassifier(nn.Module):
-    def __init__(self, input_size):
+    def __init__(self, input_size, num_classes):
         super(PeopleClassifier, self).__init__()
-        #Include your code here
-
-
+        self.fc1 = nn.Linear(input_size, 32)
+        self.fc2 = nn.Linear(32, 16)
+        self.fc3 = nn.Linear(16, num_classes)
 
     def forward(self, x):
-        #Include your code here
-        
-
-```
-```python
+        x = torch.relu(self.fc1(x))
+        x = torch.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
 # Initialize the Model, Loss Function, and Optimizer
+input_size = X_train.shape[1]
+num_classes = 4
 
-
-```
-```python
+model = PeopleClassifier(input_size, num_classes)
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
 def train_model(model, train_loader, criterion, optimizer, epochs):
-    #Include your code here
-```
+    for epoch in range(epochs):
+        model.train()
+        total_loss = 0
+
+        for inputs, labels in train_loader:
+            optimizer.zero_grad()
+            outputs = model(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+
+            total_loss += loss.item()
+
+        print(f"Epoch {epoch+1}/{epochs}, Loss: {total_loss:.4f}")
+~~~
 
 
 
 ## Dataset Information
 
-Include screenshot of the dataset
+<img width="1027" height="410" alt="image" src="https://github.com/user-attachments/assets/c16ff1e6-88ec-4656-97f7-17ce94e6baec" />
+
 
 ## OUTPUT
 
@@ -66,16 +84,19 @@ Include screenshot of the dataset
 
 ### Confusion Matrix
 
-Include confusion matrix here
+<img width="831" height="737" alt="image" src="https://github.com/user-attachments/assets/f1d1f9d6-d8b1-465a-a7cd-7827668c85cd" />
+
 
 ### Classification Report
 
-Include Classification Report here
+<img width="684" height="287" alt="image" src="https://github.com/user-attachments/assets/1c038542-45c3-4775-a483-4f1060b82801" />
+
 
 
 ### New Sample Data Prediction
 
-Include your sample input and output here
+<img width="932" height="238" alt="image" src="https://github.com/user-attachments/assets/afccc4ec-5650-4fc2-9eb8-9fd94eaabe5f" />
+
 
 ## RESULT
-Include your result here
+Thus the neural network classification model was successfully developed.
