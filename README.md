@@ -14,17 +14,62 @@ You are required to help the manager to predict the right group of the new custo
 
 ## Neural Network Model
 
-<img width="978" height="828" alt="image" src="https://github.com/user-attachments/assets/cbdc9e3e-ebee-437d-94eb-5fb51fdcd3ab" />
+<img width="737" height="855" alt="image" src="https://github.com/user-attachments/assets/960019a0-5198-403c-8a8d-55b3c453ea48" />
+
 
 
 ## DESIGN STEPS
 
-### STEP 1:
-Write your own steps
+### Step 1:
 
-### STEP 2:
 
-### STEP 3:
+Identify input features and target variable (customer segment A, B, C, D). Recognize it as a multi-class classification problem.
+
+
+
+### Step 2:
+
+Import the dataset using pandas or similar tools. Check data shape, columns, and target labels.
+
+
+
+### Step 3:
+
+Detect any null or missing values in the dataset. Fill them using mean/median or remove affected rows.
+
+
+### Step 4:
+
+Convert categorical features into numerical form using encoding. Convert segments A, B, C, D into numeric labels (0–3).
+
+### Step 5:
+
+Divide data into training and testing sets (e.g., 80/20). Training data is used to learn, testing data evaluates performance.
+
+
+
+### Step 7: 
+
+Set input neurons equal to number of features. Use hidden layers and 4 output neurons with Softmax activation.
+
+
+### Step 8: 
+
+Use CrossEntropyLoss for multi-class classification. Select Adam optimizer for efficient training.
+
+
+### Step 9: 
+
+Perform forward propagation and compute loss. Apply backpropagation to update weights over multiple epochs.
+
+### Step 10:
+
+Calculate accuracy and generate confusion matrix. Check precision, recall, and F1-score for performance analysis.
+
+
+### Step 11: Make Predictions
+
+Use the trained model on new customer data. Predict the correct segment (A, B, C, or D).
 
 
 ## PROGRAM
@@ -84,13 +129,16 @@ def train_model(model, train_loader, criterion, optimizer, epochs):
 
 ### Confusion Matrix
 
-<img width="683" height="569" alt="image" src="https://github.com/user-attachments/assets/653ede8d-990d-44f9-9d79-ddf6d65a567c" />
+
+<img width="675" height="548" alt="image" src="https://github.com/user-attachments/assets/49420f84-c80e-470c-8254-76e00b229eff" />
+
 
 
 
 ### Classification Report
 
-<img width="601" height="371" alt="image" src="https://github.com/user-attachments/assets/b3ad1ff6-6079-467a-8f53-99068b0d7b7e" />
+
+<img width="597" height="447" alt="image" src="https://github.com/user-attachments/assets/1a07294b-35d7-47ed-9fb7-552877705636" />
 
 
 
@@ -98,7 +146,9 @@ def train_model(model, train_loader, criterion, optimizer, epochs):
 ### New Sample Data Prediction
 
 
-<img width="382" height="50" alt="image" src="https://github.com/user-attachments/assets/7f0cadc3-3aff-4953-9d95-5c88d70772a7" />
+<img width="376" height="102" alt="image" src="https://github.com/user-attachments/assets/257730da-c6ef-4411-ae92-d593b3275df6" />
+
+
 
 
 
